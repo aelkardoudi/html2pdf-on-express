@@ -6,21 +6,19 @@ var fileUpload = multer({
   dest: './tmp/'
 }).single('file');
 var fs = require("fs");
+var pdf = require('html-pdf');
 
 
 router.post('/html2pdf', fileUpload, function(req, res) {
   console.log(req.file);
   if (req.file.mimetype == "text/html") {
     res.set('Content-Type', 'application/pdf');
-    res.attachment(req.file.originalname + '.pdf');
     wkhtmltopdf(fs.createReadStream(req.file.path), {
-      pageSize: 'letter',
-      output: "test.pdf"
+      pageSize: 'letter'
     }, function(err, stream) {
       if (err) {
         console.error(err);
       }
-      console.log("done");
     }).pipe(res);
   } else {
     res.status(400).send("400 : Bad request or a bad type !");
