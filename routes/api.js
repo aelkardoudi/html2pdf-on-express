@@ -6,7 +6,6 @@ var fileUpload = multer({
   dest: './tmp/'
 }).single('file');
 var fs = require("fs");
-var pdf = require('html-pdf');
 
 
 router.post('/html2pdf', fileUpload, function(req, res) {
