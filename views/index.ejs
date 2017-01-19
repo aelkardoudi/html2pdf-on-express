@@ -69,9 +69,9 @@
 
                 <div class="mdl-tabs__panel" id="curl">
                     <h6>Vous pouvez convertir une page web en fournisant l'url de la page : </h6>
-                    <form method="POST" enctype="multipart/form-data" action="/api/url2pdf">
+                    <form method="POST" enctype="application/x-www-form-urlencoded" action="/api/url2pdf">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="url">
+                        <input class="mdl-textfield__input" type="text" id="url" name="url">
                         <label class="mdl-textfield__label" for="url">URL</label>
                       </div>
                       <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
