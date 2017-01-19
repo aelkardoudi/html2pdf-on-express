@@ -8,7 +8,8 @@ var fs = require("fs");
 var phStreamer = require("phantom-render-stream")({
   format: 'pdf',
   paperFormat: 'A4',
-  orientation: 'portrait'
+  orientation: 'portrait',
+  width: 25000
 });
 
 
